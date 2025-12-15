@@ -1,0 +1,12 @@
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vscode/
+*.suo
+*.sdf
+*.opensdf
+*.sln
+*.pdb
+*.log
+*.vs
