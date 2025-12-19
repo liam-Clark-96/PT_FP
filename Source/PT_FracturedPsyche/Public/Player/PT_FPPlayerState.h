@@ -20,6 +20,7 @@ public:
 	APT_FPPlayerState(); //Constructor
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override; //Get Ability System Component
+	UAttributeSet* GetAttributeSet() const { return AttributeSet; } //Get Attribute Set
 	
 
 protected:
@@ -27,6 +28,6 @@ protected:
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent; //Ability System Component
 
 	UPROPERTY()
-	TObjectPtr<UAttributeSet> AttributeSet; //Holds the Attirbutes
+	TObjectPtr<UAttributeSet> AttributeSet; //Holds the Attributes
 
 };

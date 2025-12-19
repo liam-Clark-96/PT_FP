@@ -8,8 +8,7 @@
 #include "PT_FPCharacterBase.generated.h"
 
 class UAbilitySystemComponent; //Forward Declaration
-class UGameplayEffect; //Forward Declaration
-class UGameplayAbility; //Forward Declaration
+class UAttributeSet; //Forward Declaration
 
 UCLASS()
 class PT_FRACTUREDPSYCHE_API APT_FPCharacterBase : public ACharacter, public IAbilitySystemInterface
@@ -22,16 +21,19 @@ public:
 
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override; //Get Ability System Component
 
-	virtual void PossessedBy(AController* NewController) override; //Called when the character is possessed
+	UAttributeSet* GetAttributeSet() const { return AttributeSet; } //Get Attribute Set
 
-	virtual void OnRep_PlayerState() override; //Called when the PlayerState is replicated
 
 protected:
 
 	virtual void InitAbilityActorInfo(); //Initialize Ability Actor Info
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GAS")
+	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+
+	UPROPERTY()
+	TObjectPtr<UAttributeSet> AttributeSet;
+
 
 	virtual void BeginPlay() override;
 };
